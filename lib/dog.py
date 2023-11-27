@@ -12,19 +12,19 @@ APPROVED_BREEDS = [
 ]
 
 class Dog:
-    def __init__(self, name, breed=None):
-        self._breed = None
-        self._name = None  # Added _name attribute
+    def __init__(self, name='fido', breed="Mastiff"):
+        self.breed = breed
         self.name = name
 
     def set_name(self, value):  # Added set_name method
-        if isinstance(value, str) and 0 < len(value) <= 25:
+        if type(value) == str and 0 < len(value) <= 25:
             self._name = value
         else:
             print("Name must be string between 1 and 25 characters.")
 
     def get_name(self):  # Added get_name method
         return self._name
+
 
     name = property(get_name, set_name)  # Using property() to define name property
 
